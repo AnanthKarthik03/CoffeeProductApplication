@@ -1,0 +1,77 @@
+<body data-sidebar="dark">
+  <div id="layout-wrapper">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+    <div class="main-content">
+      <div class="page-content">
+        <div class="container-fluid">
+          <!-- start page title -->
+          <div class="row">
+            <div class="col-12">
+              <div
+                class="page-title-box d-sm-flex align-items-center justify-content-between"
+              >
+                <h4 class="mb-sm-0 font-size-18">Coffee List</h4>
+
+                <div class="page-title-right">
+                  <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item active">Coffee List</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end page title -->
+
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="card overflow-hidden">
+                <div class="bg-primary bg-soft">
+                  <div class="row">
+                    <div class="col-12">
+                      <p-table
+                        [value]="coffeeData"
+                        [paginator]="true"
+                        [rows]="10"
+                        [showCurrentPageReport]="true"
+                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                        [rowsPerPageOptions]="[10, 25, 50]"
+                      >
+                        <ng-template pTemplate="header">
+                          <tr>
+                            <th>ID</th>
+                            <th>UID</th>
+                            <th>Blend Name</th>
+                            <th>Origin</th>
+                            <th>Variety</th>
+                            <th>Notes</th>
+                            <th>Intensifier</th>
+                          </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-coffeeData let-i="rowIndex">
+                          <tr>
+                            <td>{{ i+1 }}</td>
+                            <td>{{ coffeeData.uid }}</td>
+                            <td>{{ coffeeData.blend_name }}</td>
+                            <td>{{ coffeeData.origin }}</td>
+                            <td>{{ coffeeData.variety }}</td>
+                            <td>{{ coffeeData.notes }}</td>
+                            <td>{{ coffeeData.intensifier }}</td>
+                          </tr>
+                        </ng-template>
+                      </p-table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- container-fluid -->
+      </div>
+      <!-- End Page-content -->
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+</body>

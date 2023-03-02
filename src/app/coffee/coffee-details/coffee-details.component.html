@@ -1,0 +1,121 @@
+<body data-sidebar="dark">
+  <div id="layout-wrapper">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+    <div class="main-content">
+      <div class="page-content">
+        <div class="container-fluid">
+          <!-- start page title -->
+          <div class="row">
+            <div class="col-12">
+              <div
+                class="page-title-box d-sm-flex align-items-center justify-content-between"
+              >
+                <h4 class="mb-sm-0 font-size-18">Coffee Details</h4>
+
+                <div class="page-title-right">
+                  <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item active">Coffee Details</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end page title -->
+          <div class="row mb-4">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+              <p-dropdown
+                (onChange)="coffeeSelect($event.value)"
+                [options]="selectedCoffee"
+                [filter]="true"
+                name="test"
+                appendTo="body"
+                [style]="{
+                  overflow: 'visible',
+                  width: '100%'
+                }"
+              >
+              </p-dropdown>
+            </div>
+          </div>
+          <div class="row" *ngIf="coffeeDetails && coffeeDetails.length > 0">
+            <div class="col-xl-1"></div>
+            <div class="col-xl-10">
+              <div class="card overflow-hidden">
+                <div class="bg-primary">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="card overflow-hidden">
+                        <div class="bg-primary">
+                          <div class="row">
+                            <div class="col-7">
+                              <div class="text-primary p-3">
+                                <h2 style="color: #fff;">
+                                  {{ coffeeDetails[0].blend_name }}
+                                </h2>
+                              </div>
+                            </div>
+                            <div class="col-5 align-self-end">
+                              <img
+                                src="assets/images/coffee/card_bg.png"
+                                alt=""
+                                class="img-fluid coffeeImg"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body pt-0">
+                          <div class="row">
+                            <div class="col-sm-4">
+                              <div class="avatar-md profile-user-wid mb-4">
+                                <img
+                                  src="assets/images/coffee/card_profile.png"
+                                  alt=""
+                                  class="img-thumbnail rounded-circle"
+                                />
+                              </div>
+                              <h5 class="font-size-15 text-truncate">
+                                Origin : {{ coffeeDetails[0].origin }}
+                              </h5>
+                              <p class="text-muted mb-0 text-truncate">
+                                Variety : {{ coffeeDetails[0].variety }}
+                              </p>
+                            </div>
+
+                            <div class="col-sm-8">
+                              <div class="pt-4">
+                                <div class="row">
+                                  <div class="col-6">
+                                    <h5 class="font-size-15">Notes</h5>
+                                    <p class="text-muted mb-0">
+                                      {{ coffeeDetails[0].notes }}
+                                    </p>
+                                  </div>
+                                  <div class="col-6">
+                                    <h5 class="font-size-15">Intensifier</h5>
+                                    <p class="text-muted mb-0">
+                                      {{ coffeeDetails[0].intensifier }}
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- container-fluid -->
+      </div>
+      <!-- End Page-content -->
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+</body>

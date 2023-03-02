@@ -1,0 +1,27 @@
+<!-- ========== Left Sidebar Start ========== -->
+<div class="vertical-menu">
+  <div data-simplebar class="h-100">
+    <!--- Sidemenu -->
+    <div id="sidebar-menu">
+      <!-- Left Menu Start -->
+      <ul class="metismenu list-unstyled" id="side-menu">
+        <li class="menu-title" key="t-menu">Menu</li>
+
+        <li>
+          <a (click)="home()" class="waves-effect" [ngClass]="{ active: pageType === 'home' }">
+            <i class="bx bx-home-circle"></i>
+            <span key="t-dashboards">Coffee List</span>
+          </a>
+        </li>
+        <li>
+          <a (click)="coffeeDetails()" class="waves-effect" [ngClass]="{ active: pageType === 'coffeeDetails' }">
+            <i class="bx bx-coffee"></i>
+            <span key="t-dashboards">Coffee Details</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- Sidebar -->
+  </div>
+</div>
+<!-- Left Sidebar End -->
